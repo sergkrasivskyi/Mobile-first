@@ -1,0 +1,209 @@
+@import "./src/nullstyle";
+@import "./src/fonts";
+@import "./src/variables";
+
+/* Media mixins */
+@import "./src/media-mixin";
+
+/* Common styles */
+
+body {
+	color: $dark-cl;
+	font-size: $main-fz;
+	line-height: $main-lh;
+	font-family: "Heebo", sans-serif;
+	// чобы не было горизонтальной прокрутки
+	overflow-x: hidden;
+}
+
+.container {
+	padding: 0 $gap;
+	margin: 0 auto;
+	// устанавливаем макс ширину контейнера, прибавляя к чистой его ширине паддинг 20+20px
+	max-width: 896px;
+	position: relative;
+	width: 100%;
+}
+.container-wide {
+	padding: 0 $gap;
+	margin: 0 auto;
+	// устанавливаем макс ширину контейнера, прибавляя к чистой его ширине паддинг 20+20px
+	max-width: 1040px;
+	position: relative;
+	width: 100%;
+}
+/* Header */
+
+.header {
+	padding-top: 50px;
+	&__top {
+		height: 50px;
+		background-color: #ffffff;
+		padding: 14px 0;
+		text-align: end;
+		position: fixed;
+		top: 0;
+		width: 100%;
+		@include media-min(600) {
+			padding: 27px 0;
+			height: auto;
+		}
+		@include media-min(800) {
+			padding-top: 82px;
+		}
+		z-index: 9;
+	}
+}
+
+/* Nav */
+.nav {
+	background-color: #ffffff;
+	display: none;
+	position: absolute;
+	// длаем меню немного ширины экрана
+	width: calc(100% - $gap);
+	left: 0;
+	right: 0;
+	top: 36px;
+	margin: auto;
+	// центрируем контент
+	text-align: center;
+	// чтобы всегда была сверху остального контента
+	z-index: 10;
+	@include media-min(600) {
+		display: block;
+		position: relative;
+		top: 0;
+		text-align: end;
+	}
+
+	&.opened {
+		display: block;
+	}
+
+	&__item {
+		// display: block;
+		font-weight: 500;
+		font-size: 20px;
+		line-height: 1.45;
+		// text-align: center;
+		color: #000000;
+		padding: 10px 0;
+	}
+	li {
+		@include media-min(600) {
+			display: inline-block;
+			padding: 0;
+		}
+	}
+	li + li {
+		@include media-min(600) {
+			margin-left: 33px;
+		}
+	}
+}
+/* Buttons */
+.toggle-nav {
+	display: inline-block;
+	background-color: transparent;
+	vertical-align: middle;
+	transition: 0.1s linear;
+	@include media-min(600) {
+		display: none;
+	}
+	img {
+		width: 30px;
+		height: 18px;
+		display: inline-block;
+		// фиксим позиционирование картинки
+		vertical-align: middle;
+	}
+}
+.toggle-nav[aria-expanded="true"] {
+	transform: scale(0.8);
+}
+
+/* Hero */
+.hero {
+	text-align: center;
+	padding: 33px 0 58px;
+
+	@include media-min(800) {
+		display: flex;
+		flex-direction: row-reverse;
+		column-gap: 106px;
+		padding: 128px 0 71px;
+		text-align: left;
+	}
+
+	&__image {
+		width: 170px;
+		height: 170px;
+		position: relative;
+		margin: 0 auto 43px;
+		@include media-min(800) {
+			flex-shrink: 0;
+			width: 243px;
+			height: 243px;
+		}
+		&::before {
+			content: "";
+			display: block;
+			position: absolute;
+			top: 9px;
+			right: 3px;
+			width: 100%;
+			height: 100%;
+			border-radius: 50%;
+			z-index: 1;
+			background-color: #edf7fa;
+		}
+
+		img {
+			position: relative;
+			border-radius: 50%;
+			display: inline-block;
+			vertical-align: middle;
+			min-width: 100%;
+			z-index: 2;
+		}
+	}
+	&__title {
+		font-weight: 700;
+		font-size: 32px;
+		line-height: 1.25;
+
+		color: $dark-cl;
+		margin-bottom: 21px;
+		@include media-min(800) {
+			font-size: 44px;
+			margin-bottom: 40px;
+		}
+	}
+	&__text {
+		font-size: $main-fz;
+		line-height: 1.5;
+		margin-bottom: 27px;
+		@include media-min(800) {
+			margin-bottom: 38px;
+		}
+	}
+	&__contant {
+		padding-top: 18px;
+	}
+
+	&__button {
+		display: inline-block;
+		font-weight: 500;
+		font-size: 20px;
+		line-height: 1.45;
+		color: #ffffff;
+		background-color: $main-cl;
+		padding: 9px 20px 9px;
+		border-radius: 2px;
+		&:focus,
+		&:hover,
+		&:active {
+		}
+	}
+}

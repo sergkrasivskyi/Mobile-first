@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- <link
+      href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&display=swap"
+      rel="stylesheet"
+    /> -->
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Mobile first train template</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__top">
+        <div class="container-wide">
+          <!-- связываем кнопку с через id, вот так: aria-controls="nav" 
+					далее артибут, показывающий, что меню изначальено закрыто:
+					aria-expanded="false"
+					также подпись к кнопке:
+					aria-label="Открыть меню"
+					-->
+
+          <button
+            class="toggle-nav"
+            aria-controls="nav"
+            aria-expanded="false"
+            aria-label="Открыть меню"
+          >
+            <img src="./images/menu.svg" alt="menu" />
+          </button>
+          <nav class="nav" id="nav">
+            <ul>
+              <li><a class="nav__item" href="#works">Works</a></li>
+              <li><a class="nav__item" href="#blog">blog</a></li>
+              <li><a class="nav__item" href="#contact">contact</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <div class="container">
+        <div class="hero">
+          <div class="hero__image">
+            <img src="./images/portrait.jpg" alt="John's portrait" width="170" />
+          </div>
+          <div class="hero__contant">
+            <h1 class="hero__title">Hi, I am John, Creative Technologist</h1>
+            <p class="hero__text">
+              Amet minim mollit non deserunt ullamco est sit aliqua dolor do
+              amet sint. Velit officia consequat duis enim velit mollit.
+              Exercitation veniam consequat sunt nostrud amet.
+            </p>
+            <a class="hero__button" href="#">Download Resume</a>
+          </div>
+        </div>
+      </div>
+    </header>
+  </body>
+  <script type="text/javascript" src="/js/script.js"></script>
+</html>
