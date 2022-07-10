@@ -149,6 +149,9 @@ body {
 .nav.opened {
   display: block;
 }
+.nav.closed {
+  display: none;
+}
 .nav__item {
   font-weight: 500;
   font-size: 20px;

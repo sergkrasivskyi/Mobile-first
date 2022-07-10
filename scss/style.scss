@@ -80,6 +80,9 @@ body {
 	&.opened {
 		display: block;
 	}
+	&.closed {
+		display: none;
+	}
 
 	&__item {
 		// display: block;
@@ -111,6 +114,9 @@ body {
 	@include media-min(600) {
 		display: none;
 	}
+	// @include media-min(800) {
+	// 	aria-expanded = "false"; 
+	// }
 	img {
 		width: 30px;
 		height: 18px;
