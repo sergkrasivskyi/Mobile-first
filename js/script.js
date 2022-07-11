@@ -1,33 +1,30 @@
-// получаем доступ доступ к классам кнопки и навигации
+// получаем доступ доступ к классам кнопки и навигации:
+// находим кнопку
 const toggleNav = document.querySelector(".toggle-nav"),
-  nav = document.querySelector(".nav");
+  //  и находим само меню
+  nav = document.querySelector(".nav"),
+  body = document.querySelector("body");
+// слушаем событие "клик" на кнопке
 toggleNav.addEventListener("click", () => {
+  // проверяем атрибут - открыто ли меню, если false (закрыто), то
   const exp = "true" === toggleNav.getAttribute("aria-expanded");
+  // устанавливаем обратное значение
   toggleNav.setAttribute("aria-expanded", !exp);
+  // включаем/ выключаем, через toggle, класс opened
   nav.classList.toggle("opened");
-
+  body.classList.toggle("opened");
+  // и меняем описание aria-label на соответствующее
   exp
     ? toggleNav.setAttribute("aria-label", "Открыть меню")
     : toggleNav.setAttribute("aria-label", "Закрыть меню");
 });
-const page = document.querySelector(".container-wide");
-const pageWidth = page.style.width;
-console.log(pageWidth);
-const observe = new ResizeObserver(entries => {
-  if (entries >= 600) {
-    toggleNav.setAttribute("aria-expanded", "false");
-    nav.classList.remove("opened");
-    // nav.classList.toggle("closed");
-  }
+// здесь мы выключаем выпадение меню (прячем), отслеживая изменение
+// размера экрана body, чтобы меню не оставалось открытым, если кнопка
+// закрыть не была нажата
+const page = document.querySelector("body");
+const observe = new ResizeObserver(() => {
+  nav.classList.remove("opened");
+	body.classList.remove("opened");
+  toggleNav.setAttribute("aria-expanded", "false");
 });
-// toggleNav.setAttribute("aria-expanded", false);
-// console.log(entries);
-
-//   if (pageWidth >= 600) {
-//     toggleNav.setAttribute("aria-expanded", "false");
-// 		nav.classList.remove("opened");
-// 		nav.classList.toggle("closed");
-//   }
-// });
-// toggleNav.setAttribute("aria-expanded", exp);
 observe.observe(page);

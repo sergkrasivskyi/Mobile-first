@@ -14,6 +14,11 @@ body {
 	font-family: "Heebo", sans-serif;
 	// чобы не было горизонтальной прокрутки
 	overflow-x: hidden;
+	overflow-y: auto;
+	&.opened {
+		display: block;
+		overflow-y: hidden;
+	}
 }
 
 .container {
@@ -57,10 +62,10 @@ body {
 
 /* Nav */
 .nav {
-	background-color: #ffffff;
+	background: $light-cl;
 	display: none;
 	position: absolute;
-	// длаем меню немного ширины экрана
+	// делаем меню немного меньше ширины экрана
 	width: calc(100% - $gap);
 	left: 0;
 	right: 0;
@@ -70,18 +75,18 @@ body {
 	text-align: center;
 	// чтобы всегда была сверху остального контента
 	z-index: 10;
+	// для экранов больше 600px
 	@include media-min(600) {
 		display: block;
 		position: relative;
 		top: 0;
 		text-align: end;
+		background-color: $light-cl;
 	}
 
 	&.opened {
 		display: block;
-	}
-	&.closed {
-		display: none;
+		overflow-y: auto;
 	}
 
 	&__item {
@@ -115,7 +120,7 @@ body {
 		display: none;
 	}
 	// @include media-min(800) {
-	// 	aria-expanded = "false"; 
+	// 	aria-expanded = "false";
 	// }
 	img {
 		width: 30px;
@@ -133,7 +138,7 @@ body {
 .hero {
 	text-align: center;
 	padding: 33px 0 58px;
-
+	
 	@include media-min(800) {
 		display: flex;
 		flex-direction: row-reverse;
