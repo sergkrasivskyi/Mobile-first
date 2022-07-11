@@ -1,10 +1,5 @@
-@import "./src/nullstyle";
-@import "./src/fonts";
-@import "./src/variables";
-@import "./src/extends";
-
-/* Media mixins */
-@import "./src/media-mixin";
+@import "./common/";
+@import "./components/header/"
 
 /* Common styles */
 

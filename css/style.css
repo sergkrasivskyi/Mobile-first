@@ -1,5 +1,6 @@
-/*nullstyle*/
+/* Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&display=swap");
+/*nullstyle*/
 * {
   padding: 0;
   margin: 0;
@@ -72,7 +73,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /*--------------------------------------------------*/
-/* Fonts */ /* Extends */
+/* Extends */
 .post__design-type, .post__date, .hero__text {
   font-weight: 400;
   font-size: 16px;
@@ -80,7 +81,6 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.5;
 }
 
-/* Media mixins */
 /* Mixins */
 /* Common styles */
 body {
