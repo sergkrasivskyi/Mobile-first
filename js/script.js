@@ -21,10 +21,11 @@ toggleNav.addEventListener("click", () => {
 // здесь мы выключаем выпадение меню (прячем), отслеживая изменение
 // размера экрана body, чтобы меню не оставалось открытым, если кнопка
 // закрыть не была нажата
-const page = document.querySelector("body");
+// const page = document.querySelector("body");
 const observe = new ResizeObserver(() => {
   nav.classList.remove("opened");
 	body.classList.remove("opened");
   toggleNav.setAttribute("aria-expanded", "false");
+	toggleNav.setAttribute("aria-label", "Открыть меню");
 });
-observe.observe(page);
+observe.observe(body);

@@ -72,8 +72,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /*--------------------------------------------------*/
-/* Fonts */
+/* Fonts */ /* Extends */
+.post__design-type, .post__date, .hero__text {
+  font-weight: 400;
+  font-size: 16px;
+  color: #21243d;
+  line-height: 1.5;
+}
+
 /* Media mixins */
+/* Mixins */
 /* Common styles */
 body {
   color: #21243d;
@@ -132,7 +140,7 @@ body.opened {
 
 /* Nav */
 .nav {
-  background: rgba(134, 149, 164, 0.7);
+  background: rgb(134, 149, 164);
   display: none;
   position: absolute;
   width: calc(100% - 20px);
@@ -149,7 +157,7 @@ body.opened {
     position: relative;
     top: 0;
     text-align: end;
-    background-color: rgba(134, 149, 164, 0.7);
+    background-color: rgb(134, 149, 164);
   }
 }
 .nav.opened {
@@ -260,8 +268,6 @@ body.opened {
   }
 }
 .hero__text {
-  font-size: 16px;
-  line-height: 1.5;
   margin-bottom: 27px;
 }
 @media (min-width: 800px) {
@@ -281,4 +287,89 @@ body.opened {
   background-color: #ff6464;
   padding: 9px 20px 9px;
   border-radius: 2px;
+}
+/* resent-post-section */
+.section-wrapper {
+  background: #edf7fa;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (min-width: 600px) {
+  .section-header {
+    justify-content: space-between;
+  }
+}
+
+.section-title {
+  font-size: 18px;
+  line-height: 3.33;
+  color: #21243d;
+  text-align: center;
+}
+
+.section-link {
+  display: none;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #00a8cc;
+}
+@media (min-width: 600px) {
+  .section-link {
+    display: block;
+  }
+}
+
+.posts-list {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 17px;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+.posts-list__item {
+  background: #ffffff;
+  box-shadow: 0px 4px 10px rgba(187, 225, 250, 0.25);
+  border-radius: 4px;
+  padding: 12px 21px 22px 19px;
+  max-width: 418px;
+}
+
+.post {
+  color: #21243d;
+}
+.post__description {
+  display: grid;
+  grid-template-rows: repeat(3, -webkit-min-content);
+  grid-template-rows: repeat(3, min-content);
+  grid-template-columns: 0.4fr -webkit-min-content 0.6fr;
+  grid-template-columns: 0.4fr min-content 0.6fr;
+  row-gap: 12px;
+  -moz-column-gap: 24px;
+       column-gap: 24px;
+}
+.post__title {
+  grid-column: span 3;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 1.36;
+}
+.post__date {
+  text-align: left;
+}
+.post__divider {
+  height: 21px;
+  border-left: #000000 1.5px solid;
+}
+.post__design-type {
+  text-align: center;
+}
+.post__text {
+  margin-top: 7px;
+  grid-column: span 3;
 }
