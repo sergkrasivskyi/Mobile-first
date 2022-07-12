@@ -81,7 +81,8 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.5;
 }
 
-/* Mixins */
+/* Mixins */ /* header scss*/ /* Header media */
+/*index*/
 /* Common styles */
 body {
   color: #21243d;
@@ -384,10 +385,22 @@ body.opened {
 }
 
 /* Section featured-section  */
+.featured-section {
+  padding-bottom: 15px;
+}
 .feature {
   display: flex;
   flex-direction: column;
   row-gap: 17px;
+  border-bottom: 1px solid #e0e0e0;
+}
+.feature.mobile-hidden {
+  display: none;
+}
+@media (min-width: 600px) {
+  .feature.mobile-hidden {
+    display: flex;
+  }
 }
 .feature__img img {
   width: 100%;
@@ -417,4 +430,29 @@ body.opened {
 }
 .feature__text {
   margin-top: 7px;
+  margin-bottom: 30px;
+}
+.feature + .feature {
+  padding-top: 30px;
+}
+
+/* Footer */
+.footer {
+  padding: 50px 0;
+}
+
+.footer-socials-row {
+  text-align: center;
+}
+
+.socials-list {
+  display: flex;
+  -moz-column-gap: 35px;
+       column-gap: 35px;
+  align-items: center;
+  justify-content: center;
+}
+.footer-copyright {
+  margin-top: 26px;
+  text-align: center;
 }
