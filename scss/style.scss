@@ -224,9 +224,7 @@ body {
 	}
 }
 .section-header {
-	display: flex;
-	align-items: center;
-	justify-content: center;
+	@include flex(center, center, row);
 	&__title {
 		font-size: 18px;
 		line-height: 3.33;
@@ -251,12 +249,10 @@ body {
 }
 
 .posts-list {
-	display: flex;
+	@include flex(center, center, row);
 	flex-wrap: wrap;
 	row-gap: 17px;
 	column-gap: 20px;
-	align-items: center;
-	justify-content: center;
 	// &:nth-last-child(1) {
 	// 	margin-bottom: 41px;
 	// }
@@ -340,9 +336,8 @@ body {
 	}
 }
 .feature {
-	text-align: center;
-	display: flex;
-	flex-direction: column;
+	@include flex(center, stretch, column);
+
 	row-gap: 17px;
 
 	&__img {
@@ -441,10 +436,8 @@ body {
 	text-align: center;
 }
 .socials-list {
-	display: flex;
+	@include flex(center, center, row);
 	column-gap: 35px;
-	align-items: center;
-	justify-content: center;
 	// .socials-list__item
 
 	&__item {

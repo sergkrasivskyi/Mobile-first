@@ -1,12 +1,19 @@
 /* Mixins */
 @mixin media-min($w) {
-    @media (min-width: ($w + 'px')) {
-        @content;
-    }
+	@media (min-width: ($w + "px")) {
+		@content;
+	}
 }
 
 @mixin media-max($w) {
-    @media (max-width: ($w + 'px')) {
-        @content;
-    }
+	@media (max-width: ($w + "px")) {
+		@content;
 	}
+}
+@mixin flex($justify, $align, $direction) {
+	display: flex;
+	justify-content: $justify;
+	align-items: $align;
+	flex-direction: $direction;
+}
+

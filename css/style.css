@@ -305,8 +305,9 @@ body.opened {
 
 .section-header {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  flex-direction: row;
 }
 .section-header__title {
   font-size: 18px;
@@ -334,12 +335,13 @@ body.opened {
 
 .posts-list {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
   flex-wrap: wrap;
   row-gap: 17px;
   -moz-column-gap: 20px;
        column-gap: 20px;
-  align-items: center;
-  justify-content: center;
 }
 .posts-list__item {
   background: #ffffff;
@@ -402,8 +404,9 @@ body.opened {
   }
 }
 .feature {
-  text-align: center;
   display: flex;
+  justify-content: center;
+  align-items: stretch;
   flex-direction: column;
   row-gap: 17px;
 }
@@ -493,10 +496,11 @@ body.opened {
 
 .socials-list {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
   -moz-column-gap: 35px;
        column-gap: 35px;
-  align-items: center;
-  justify-content: center;
 }
 .footer-copyright {
   margin-top: 26px;
