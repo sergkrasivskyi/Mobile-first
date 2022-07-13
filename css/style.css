@@ -415,7 +415,7 @@ body.opened {
 }
 .feature__img img {
   width: 100%;
-  max-width: 557px;
+  vertical-align: middle;
 }
 .feature__title {
   font-weight: 700;
