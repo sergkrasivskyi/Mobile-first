@@ -177,13 +177,13 @@ body {
 	}
 	&__title {
 		font-weight: 700;
-		font-size: 32px;
+		font-size: clamp(32px, (1rem + 5vw), 44px);
 		line-height: 1.25;
 
 		color: $dark-cl;
 		margin-bottom: 21px;
 		@include media-min(767) {
-			font-size: 44px;
+			// font-size: 44px;
 			margin-bottom: 40px;
 		}
 	}
@@ -223,6 +223,7 @@ body {
 		padding-bottom: 32px;
 	}
 }
+
 .section-header {
 	@include flex(center, center, row);
 	&__title {

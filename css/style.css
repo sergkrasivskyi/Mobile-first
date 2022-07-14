@@ -257,14 +257,13 @@ body.opened {
 }
 .hero__title {
   font-weight: 700;
-  font-size: 32px;
+  font-size: clamp(32px, 1rem + 5vw, 44px);
   line-height: 1.25;
   color: #21243d;
   margin-bottom: 21px;
 }
 @media (min-width: 767px) {
   .hero__title {
-    font-size: 44px;
     margin-bottom: 40px;
   }
 }
