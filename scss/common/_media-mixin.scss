@@ -17,3 +17,92 @@
 	flex-direction: $direction;
 }
 
+@function rem($size) {
+	$size : $size * 1px;
+@return calc($size / $main-fz * 1rem);
+// $size / $main-fz * 1rem;
+// @return #{$size / $main-fz}rem;
+}
+
+// $root-font-size: 16px;
+
+// @function rem($size) {
+//   @return $size / $root-font-size * 1rem;
+// }
+
+// html {
+//   font-size: ($root-font-size / 16px) * 100%;
+// }
+
+// .some-block {
+//   font-size: rem(24px);
+// }
+
+// -------------------
+// Ще один варіант 
+
+// html {
+//   font-size: ($root-font-size / 16px) * 100%;
+//   @media (max-width: 768px) {
+//     font-size: ($root-font-size / 16px) * 100% * 0.75; // Уменьшить rem на 25% в маленьких дисплеях 
+//   }
+// }
+// -----------------
+// Ще один варіант 
+
+// $browser-context: 16; // Default
+
+// @function rem($pixels) {
+
+//   @return #{$pixels/$main-fz}rem;
+// }
+
+
+// I'm now recommending this technique:
+
+@mixin interpolate($properties, $min-screen, $max-screen, $min-value, $max-value) {
+	& {
+		@each $property in $properties {
+			#{$property}: $min-value;
+		}
+
+		@media screen and (min-width: $min-screen) {
+			@each $property in $properties {
+				#{$property}: calc-interpolation($min-screen, $min-value, $max-screen, $max-value); 
+			}
+		}
+
+		@media screen and (min-width: $max-screen) {
+			@each $property in $properties {
+				#{$property}: $max-value;
+			}
+		}
+	}
+}
+
+// Requires the calc-interpolation function which can also be used independently
+
+@function calc-interpolation($min-screen, $min-value, $max-screen, $max-value) {
+	$a: calc(($max-value - $min-value) / ($max-screen - $min-screen));
+	$b: $min-value - $a * $min-screen; 
+
+	$sign: "+";
+	@if ($b < 0) {
+		$sign: "-";
+		$b: abs($b);
+	}
+	@return calc(#{$a*100}vw #{$sign} #{$b});
+}
+
+// Indrek Pass also has a fantastic mixin here: http://sassmeister.com/gist/7f22e44ace49b5124eec
+
+
+/* Single property */
+html {
+	@include interpolate(font-size, 320px, 1366px, 14px, 20px);
+}
+
+/* Multiple properties with same values */
+h1,h2,h3,h4,h5 {
+	@include interpolate((padding-top, padding-bottom), 20rem, 70rem, 0rem, .5rem);
+}
